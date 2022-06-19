@@ -10,7 +10,6 @@ const Header = () => {
             <span>ProjectMgmt</span>
           </div>
         </a>
-        Header
       </div>
     </div>
   );
