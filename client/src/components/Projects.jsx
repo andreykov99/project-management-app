@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import ProjectRow from './ProjectRow';
+import ProjectCard from './ProjectCard';
 import { GET_PROJECTS } from '../queries/projectQueries';
 import Spinner from './Spinner';
 
@@ -11,18 +11,14 @@ const Projects = () => {
 
   return (
     <>
-      {!loading && !error && (
-        <table className="table table-hover mt-3">
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
+      {data.projects.length > 0 ? (
+        <div className="row mt-4">
           {data.projects.map((project) => (
-            <ProjectRow key={project.id} project={project} />
+            <ProjectCard key={project.id} project={project} />
           ))}
-        </table>
+        </div>
+      ) : (
+        <p>No Projects</p>
       )}
     </>
   );
